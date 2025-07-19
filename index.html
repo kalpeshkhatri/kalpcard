@@ -1,0 +1,522 @@
+<!DOCTYPE html><html lang="en"><head><script type="importmap">{"imports":{"b8JCx":"/pdf.worker.2bf55a24.js","cjIF3":"/NotoSerifGujarati-Regular.88ebc5e4.ttf"}}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Invitation</title>
+    <style>body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  display: flex;
+}
+
+@media (width <= 400px) {
+  #main {
+    flex-direction: column;
+  }
+
+  #inputcontainer {
+    margin-bottom: 20px;
+  }
+
+  #canvas_part {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+#inputcontainer {
+  background-color: #93b593;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  margin-right: 20px;
+  display: flex;
+}
+
+.input {
+  background-color: #adf8df;
+  border: 2px solid #000;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 90%;
+  height: fit-content;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#btn1, #btn2, #btn3, #btn4, #btn5 {
+  background-color: #24ce24;
+  border: 2px solid #635e5e;
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+#preview {
+  background-color: #7fffd4;
+  border: 5px solid #000;
+  border-radius: 10px;
+  width: 100vw;
+  height: 100vh;
+}
+
+#appname {
+  background-color: #d4e9d0;
+  border: 2px solid #000;
+  border-radius: 4px;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding: 3px;
+  font-size: 30px;
+}
+
+#canvas_part {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+}
+
+#displayXY {
+  flex-direction: row;
+  display: flex;
+}
+
+#allpdf {
+  background-color: #5f9ea0;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  margin-top: 30px;
+  display: flex;
+  overflow: scroll;
+}
+
+#btn6 {
+  width: fit-content;
+  height: fit-content;
+}
+
+#canvas1 {
+  margin: 20px;
+}
+
+#detail {
+  width: 90vw;
+  height: fit-content;
+  font: 20px;
+  color: #fff;
+  background-color: #0e0e0e;
+  border: 5px solid #000;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+#csvfilephoto {
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+  display: flex;
+}
+
+@media (width <= 400px) {
+  #csvfilephoto {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.kankotri {
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+@media (width <= 400px) {
+  .kankotri {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#use {
+  margin-bottom: 10px;
+}
+
+.otherbutton {
+  color: #ed4f0b;
+  border: 3px solid #000;
+  border-radius: 4px;
+  padding: 4px;
+}
+</style>
+</head>
+
+<body>
+    <div id="main">
+    <div id="inputcontainer">
+        <div style="flex-direction: column; align-items: center; display: flex">
+        
+        <iframe src="https://drive.google.com/file/d/1Bt0bmsu4U5Q-__vOolK35Noi4N3t_mkI/preview" width="100" height="100" style="pointer-events: none"></iframe>
+        <div id="appname" style="margin-top: 5px">KALPCARD</div>
+
+        </div>
+
+        <div id="use">
+            <a href="#learn"><button class="otherbutton">How to use KalpCard?</button></a>
+            <a href="https://wa.me/7046679341" target="_blank"><button class="otherbutton">Contact Developer</button></a>
+            
+        </div>
+
+        <div class="input">
+        <label for="pdffile1">upload your invitation here</label>
+        
+        <input type="file" id="pdffile1" accept="application/pdf">
+        <!-- here in accept its can write accept=".pdf" its only check extension but its not strict
+            ->so we use MIME type :MIME type stands for Multipurpose Internet Mail Extensions type.
+            ->It is a standard way to tell the browser or computer what kind of file you're dealing with.
+            ->if pdf then==>application/pdf 
+            ->if JPEG Image==>image/jpeg
+            ->if PNG Image==>image/png
+            ->if MP4 Video==>video/mp4
+            ->if JSON File==>application/json
+            ->if HTML File==>text/html
+            ->if Plain Text==>text/plain
+            ->if csv file ==>text/csv
+            
+            -->
+        </div>
+
+        <div class="input">
+            <label for="csvfile1">upload CSV file here</label>
+            <input type="file" id="csvfile1">
+
+        </div>
+
+        <div class="input">
+        <label for="num1">Page Number where i write Guest name first time:</label>
+        <input type="number" id="num1" name="page1">
+        
+        <label for="page1_x">Page1_x:</label>
+        <input type="number" id="page1_x" name="page1_x">
+        <label for="page1_y">Page1_y:</label>
+        <input type="number" id="page1_y" name="page1_y">
+        </div>
+        
+
+        <div class="input">
+        <label for="num1">Page Number where i write Guest name second time:</label>
+        <input type="number" id="num2" name="page1">
+        
+        <label for="page2_x">Page2_x:</label>
+        <input type="number" id="page2_x" name="page2_x">
+        <label for="page2_y">Page2_y:</label>
+        <input type="number" id="page2_y" name="page2_y">
+        </div>
+
+        <div class="input">
+            <label for="">Select font color</label>
+            <select name="color1" id="color1">
+                <option value="red">Red</option>
+                <option value="black" selected="">Black</option>
+                <option value="pink">Pink</option>
+                <option value="white">White</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+
+            <label for="">Select font style</label>
+            <select name="fontstyle1" id="fontstyle1">
+                <option value="Helvetica">Helvetica</option>
+                <option value="HelveticaBold">HelveticaBold</option>
+                <option value="TimesRoman">TimesRoman</option>
+                <option value="TimesRomanBold" selected="">TimesRomanBold</option>
+                <option value="Courier">Courier</option>
+                <option value="CourierBold">CourierBold</option>
+                <option value="Gujarati">Gujarati</option>
+                
+                
+            </select>
+
+            <label for="fontsize1">Select font size</label>
+            <input type="number" id="fontsize1" value="20">
+        </div>
+
+        
+
+        <div style="flex-direction: column; display: flex">
+        <button id="btn1" style="margin-bottom: 10px">PREVIEW EDITED PDF</button>
+        <!-- <button id="btn3">PREVIEW on canvas</button> -->
+        <button id="btn2" style="margin-bottom: 10px">FINAL DOWNLOAD ALL PDF</button>
+        </div>
+
+    </div>
+
+    <!-- <div id="preview"> -->
+
+    
+        <!-- <h3>PDF Preview:</h3> -->
+        <!-- <iframe id="pdfPreview" width="100%" height="95%"></iframe> -->
+
+    <!-- </div> -->
+
+     <div id="canvas_part" style="border: 5px solid #000">
+    <!--change number from here:  -->
+    <div id="displayXY">
+
+            <div class="input" style="margin-top: 20px">
+            <label for="canvasnum">change page number for preview</label>
+            <input type="number" id="canvasnum" value="1">
+            <button id="btn4">Preview</button>
+            </div>
+
+            <div class="input" style="margin-top: 20px; margin-left: 10px">
+                <label for="">X-coordinate</label>
+                <input type="number" id="X_coordinate" name="X_coordinate" value="0">
+                <label for="">Y-coordinate</label>
+                <input type="number" id="Y_coordinate" name="Y_coordinate" value="0">
+
+                
+            </div>
+            
+    </div>
+
+    <div style="margin-bottom: 20px">
+        <!-- <button id="btn5" >OK</button> -->
+    </div>
+
+    <div>
+    <canvas id="canvas1" style="background-color: #ffebcd; border: 2px solid #000"></canvas>
+    </div>
+
+    </div>
+    
+    </div>
+
+    <div id="preview"> 
+
+    
+        <h3>PDF Preview:</h3>
+        <iframe id="pdfPreview" width="100%" height="90%"></iframe>
+
+    </div>
+
+
+
+    <section id="learn">
+    <div style="justify-content: center; display: flex">
+    <div id="detail">
+        <div>
+        <h3>HOW TO USE KALPCARD</h3>
+        </div>
+
+        <div>
+            <!-- <img id="uplaod1" alt="This is picture of upload section" width="300px" height="200px"> -->
+            <!-- <img id="upload1" > -->
+            <!-- <img src="https://drive.google.com/uc?export=view&id=1A9Eh3SF5UyHisgxvfnVmri01kfEC7S-S" alt="jkejhehhehhehihihi"> -->
+            <!-- <a href="https://drive.google.com/uc?export=view&id=1A9Eh3SF5UyHisgxvfnVmri01kfEC7S-S"> click here</a> -->
+             
+            <iframe src="https://drive.google.com/file/d/1A9Eh3SF5UyHisgxvfnVmri01kfEC7S-S/preview" width="300px" height="200px" style="pointer-events: none"></iframe>
+        </div>
+
+        <div>
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ipsum expedita mollitia veritatis rerum porro eligendi sapiente vero voluptatem! Labore error, id tempora adipisci architecto corporis eligendi reiciendis voluptas nostrum accusamus itaque facere doloremque eaque quos officiis dignissimos quasi dolores.</p> -->
+         <ul>
+
+            
+            <li>Step-1:Select Pdf file.</li>
+            <li>Step-2:Select csv file.In this csv file have 2 column.one is 'name' and 'surname'.Its case sentitive.If you select Gujarati language then you should upload csv file in utf-8 formate.For other than language its not needed utf-8 format csv file.For english name you can make CSV(comma Delimited) file any where in Microsoft or Google sheet. But if you have gujarati name then you must have to make CSV file in Google Sheet. Because Google sheet encode your data in UTF-8 by default.
+            
+            </li>
+        
+         </ul>
+        </div>
+
+        <div id="csvfilephoto">
+            <div>
+            <div style="width: 300px; height: fit-content">Make CSV(comma Delimited) in Microsoft Excel</div>
+            <!-- <img id="csvexcel1"  alt="this is csv file" width="300px" height="200px"> -->
+             <!-- <iframe src="https://drive.google.com/file/d/1gfszkNC1xlUqE-KRGJj-F72R8R3QIRvm/view?usp=drive_link" frameborder="2" width="300px" height="200px"></iframe> -->
+            <iframe src="https://drive.google.com/file/d/1gfszkNC1xlUqE-KRGJj-F72R8R3QIRvm/preview" frameborder="2" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div style="width: 300px; height: fit-content">This is CSV(Comma Delimited) encode in UTF-8 make in Google sheet</div>
+            <!-- <img id="csvgoogle1" alt="this is csv file" width="300px" height="200px"> -->
+             <iframe src="https://drive.google.com/file/d/10Dne_W6Z1zTmaIzHREwL_K4kjFw5xB_7/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+            
+        </div>
+
+        <div>
+            <ul>
+                <li>Step-3:You have to give x and y position where you want that Guestname in your pdf.Type valid page number. Then click on preview button. Then click on thatpreview page wherever you want that guestname.You will get X and Y position in X-coordinate and Y-coordinate. </li>
+            </ul>
+        </div>
+
+        <div class="kankotri">
+            <div>
+            <div>click on Preview Button</div>
+            <iframe src="https://drive.google.com/file/d/1auja73HS0zh4jXbYkzWuOpboWWhAN4P0/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div>Click where you want guest name</div>
+            <iframe src="https://drive.google.com/file/d/1eSSOOIaQgFEhYevdtd60uiSn2S1S5xqS/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div>Get X and Y coordinate</div>
+            <iframe src="https://drive.google.com/file/d/1qAyI_wrMoMMRv7ZzhWA1vBTZovbqNGVL/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+        </div>
+
+        <div>
+            <ul>
+                <li>Step:4- Copy that  X-coordinate and Y-coordinate and Paste at Page1_x and Page1_y and write that page number also.If you write same guest name at different location then follow same prosedure done at step-3. If you want Guestname at one time in pdf then don't type anything in Page2_x,Page2_y and its number, its should be blank.</li>
+                
+            </ul>
+        </div>
+
+
+
+        <div class="kankotri">
+            <div>
+                <div style="width: 300px; height: fit-content">If you want guestname at one position then keep blank in page2_x,page2_y and its page number</div>
+                <iframe src="https://drive.google.com/file/d/1XVMqSayihWk1VKal1uJBoVDbB6iQvMeP/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+                <div style="width: 300px; height: fit-content">If you want same guestname at 2 location in pdf  then and then type in page2_x,page2_y and its page number.</div>
+                <iframe src="https://drive.google.com/file/d/1txyNktCoRuLlLk6xlwV0MXStGiZlwDuI/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+                <div style="width: 300px; height: fit-content">You can slightly increase and decrease manage x and y coordinage here.</div>
+                <iframe src="https://drive.google.com/file/d/1e82ayi5fDamzTOq2hNE31Z2LW7-LgpfP/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+        </div>
+
+        <div>
+            <ul>
+                <li>Step:5-You cam select font color(Red,Black,Pink,White,Green,Blue).For english language select font type(Helvetica,HelveticaBold,TimesRoman,TimesRomanBold,Courier,CourierBold).And for Gujarati language you must select Gujarati font type. You can manage font size also.</li>
+            </ul>
+        </div>
+
+        <div class="kankotri">
+            <div>
+            <div style="width: 300px; height: fit-content">Manage color,type,size</div>
+            <iframe src="https://drive.google.com/file/d/1FHul7Jo1IoFLLUggdFMR9Ic4NLOA1E4C/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div style="width: 300px; height: fit-content">select font color</div>
+            <iframe src="https://drive.google.com/file/d/19sm9hTolIliGJ5uS3fRHpLrpFoW4IYQx/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div style="width: 300px; height: fit-content">Select font type</div>
+            <iframe src="https://drive.google.com/file/d/1NyQdByj1InRs_veT8XsJaa0Io0rPe8I6/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+        </div>
+
+        <div>
+            <ul>
+                <li>Step-6:By Clicking on "PREVIEW EDITED PDF" You can see edited pdf.If can see guestname at that location.If you want to chnage location of guestname then change it and again click on "PREVIEW EDITED PDF". </li>
+            </ul>
+        </div>
+
+
+         <div class="kankotri">
+            <div>
+            <div style="width: 300px; height: fit-content">Guestname at Location 1</div>
+            <iframe src="https://drive.google.com/file/d/1m63yNJBiEs_sMcDF37O8EGv8t0CMC_ta/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div style="width: 300px; height: fit-content">Guestname at Location 2</div>
+            <iframe src="https://drive.google.com/file/d/17DQU_AtJL_wVa0gFYUJ_yR2uS8b9gljT/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+         </div>
+
+
+
+
+        <div>
+            <ul>
+                <li>Step-7:If you confirmed location of guestname then Click on "FINAL DOWNLOAD ALL PDF".By click on "FINAL DOWNLOAD ALL PDF" its automatically download saperate pdf for all guest and that pdf name its identified by that guestname.</li>
+            </ul>
+        </div>
+
+        <div class="kankotri">
+            <div>
+            <div style="width: 300px; height: fit-content">Click on "FINAL DOWNLOAD ALL PDF "</div>
+            <iframe src="https://drive.google.com/file/d/1sqkaNSoeh17xlhrdRLz7yNvcI-aZ3seM/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+            <div>
+            <div style="width: 300px; height: fit-content">You will get saperate Pdf for each guest.</div>
+            <iframe src="https://drive.google.com/file/d/1jpiYiijZMP9Nb2wpefoCGYzAaBDoxfw1/preview" width="300" height="200" style="pointer-events: none"></iframe>
+            </div>
+
+        </div>
+
+        <div>
+            <a href="https://drive.google.com/drive/folders/1RcpHtBTFoMi8aoA1FiDvKX-J9iLA38h7" target="_blank"><button style="border: 2px solid green; margin-top: 20px; margin-bottom: 20px; padding: 20px; font-size: 20px">GET DATA FOR TESTING</button></a>
+        </div>
+        
+
+        <div>
+            <a href="https://wa.me/7046679341" target="_blank"><button style="border: 2px solid green; margin-top: 20px; margin-bottom: 20px; padding: 20px; font-size: 20px">Contact Developer</button></a>
+        </div>
+
+        
+
+    </div>
+
+   
+
+    
+
+    <!-- <div> -->
+        <!-- <img src="" alt=""> -->
+    <!-- </div> -->
+
+    </div>
+
+    
+    <!-- <div id="allpdf"> -->
+        <!-- <ul id="linkunderUl"> -->
+
+            <!-- <li><a href="">name of pdf</a></li> -->
+            
+        <!-- </ul> -->
+        <!-- <button id="btn6">Download all Pdf</button> -->
+    <!-- </div> -->
+     </section>
+
+    
+
+    <script type="module" src="/self6.a04a5c85.js"></script>
+    
+
+</body></html>
